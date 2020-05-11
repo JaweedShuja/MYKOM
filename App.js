@@ -6,9 +6,11 @@ import {
 import Splash from './src/screens/Splash'
 import CountrySelect from './src/screens/CountrySelect'
 import CitySelect from './src/screens/CitySelect'
+import AreaSelect from './src/screens/AreaSelect'
+import Dashboard from './src/screens/Dashboard'
 
 const App = () => {
-    return <Splash/>
+    return <Dashboard/>
     
 }
 
