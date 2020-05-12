@@ -36,7 +36,7 @@ const renderItem = (item, setIsSeleted, setSelectedIndex, isSelected, selectedIn
         </TouchableOpacity>
     );
 }
-const CitySelect = () => {
+const CitySelect = (props) => {
     const [data, setData] = useState([
         {cityName:'Karachi', id:1},
         {cityName:'Islamabad', id:2},
@@ -79,7 +79,9 @@ const CitySelect = () => {
             <View style={styles.ButtonContainer}>
                     {
                     isSelected == true ?
-                    <TouchableOpacity style={styles.continueButton}>
+                    <TouchableOpacity
+                    onPress={() => props.change('AreaSelect')}
+                     style={styles.continueButton}>
                         <Text style={styles.continueButtonText}>Continue</Text>
                     </TouchableOpacity>    
                  : null

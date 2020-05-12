@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {
     Text,
     View,
@@ -9,9 +9,48 @@ import CitySelect from './src/screens/CitySelect'
 import AreaSelect from './src/screens/AreaSelect'
 import Dashboard from './src/screens/Dashboard'
 
-const App = () => {
-    return <Dashboard/>
+
+
+export default class App extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            currentScreen:'Splash'
+        }
+        this.changeScreen = this.changeScreen.bind(this)
+    }
+    componentDidMount(){
+        var t = setInterval(() => {
+            this.setState({
+                currentScreen:'CountrySelect'
+            })
+            clearInterval(t)
+        },3000)
+    }
+    changeScreen(name){
+        this.setState({
+            currentScreen:name
+        })
+    }
+    render(){
+
+    switch(this.state.currentScreen){
+        case 'Splash' :
+        return <Splash/>;
+
+        case 'CountrySelect' :
+        return <CountrySelect change={this.changeScreen}/>;
+
+        case 'CitySelect':
+        return <CitySelect change={this.changeScreen}/>
+        
+        case 'AreaSelect' :
+        return <AreaSelect change={this.changeScreen}/>
+
+        case 'Dashboard' :
+        return <Dashboard changeScreen={this.changeScreen}/>
+
+    }
+}
     
 }
-
-export default App
