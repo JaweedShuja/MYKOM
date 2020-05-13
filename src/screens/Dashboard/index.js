@@ -7,6 +7,8 @@ import {
     ScrollView,
  } from 'react-native'
 import styles from './style'
+import MenuDrawer from 'react-native-side-drawer'
+import SwipeGesture from '../../../swipe-gesture'
 import DrawerIcon from '../../images/drawerIcon.png'
 import HeaderLogo from '../../images/headerLogo.png'
 import CoverImage from '../../images/cover.jpg'
@@ -16,23 +18,42 @@ import DealsIcon from '../../images/deals.png'
 import AccountIcon from '../../images/account.png'
 import CartIcon from '../../images/cart.png'
 
-const handleClickButtonOne = (setButtonOne, setButtonTwo, setIsButtonOne, setIsButtonTwo) => {
-    setButtonOne('#71C9DB')
-    setButtonTwo('gray')
-    setIsButtonOne(true)
-    setIsButtonTwo(false)
-}   
-const handleClickButtonTwo = (setButtonOne, setButtonTwo, setIsButtonOne, setIsButtonTwo) => {
-    setButtonOne('gray')
-    setButtonTwo('#71C9DB')
-    setIsButtonOne(false)
-    setIsButtonTwo(true)
-}
-const Dashboard = () => {
-    const [buttonOne, setButtonOne] = useState('#71C9DB')
-    const [buttonTwo, setButtonTwo] = useState('gray')
-    const [isButtonOne, setIsButtonOne] = useState(true)
-    const [isButtonTwo, setIsButtonTwo] = useState(false)
+
+export default class Dashboard extends React.Component{
+    constructor(props){
+        super(props)
+
+        this.state = {
+            buttonOne:'#71C9DB',
+            buttonTwo:'gray',
+            isButtonOne: true,
+            isButtonTwo: false
+        }
+        this.handleClickButtonOne = this.handleClickButtonOne.bind(this);
+        this.handleClickButtonTwo = this.handleClickButtonTwo.bind(this);
+
+    }
+    handleClickButtonOne(){
+        console.log('b')
+        this.setState({
+            setButtonOne:'#71C9DB',
+            setButtonTwo:'gray',
+            setIsButtonOne:true,
+            setIsButtonTwo:false,
+        })
+        
+    }
+    handleClickButtonTwo(){
+        console.log('b')
+
+        this.setState({
+            setButtonOne:'gray',
+            setButtonTwo:'#71C9DB',
+            setIsButtonOne:false,
+            setIsButtonTwo:true,
+        })
+    } 
+    render(){
 
     return(
         <View style={styles.container}>
@@ -52,22 +73,22 @@ const Dashboard = () => {
             </View>
             <View style={styles.buttonContainer}>
                 <TouchableOpacity 
-                onPress={() => {handleClickButtonOne(setButtonOne,setButtonTwo, setIsButtonOne, setIsButtonTwo)}}
+                onPress={() => {this.handleClickButtonOne()}}
                 style={[
                     styles.button,
-                    {borderColor: isButtonOne ? '#71C9DB' : 'white'},
+                    {borderColor: this.state.isButtonOne ? '#71C9DB' : 'white'},
                 ]}>
-                    <Text style={[styles.buttonText, {color:buttonOne}]}>
+                    <Text style={[styles.buttonText, {color:this.state.buttonOne}]}>
                         Water
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                onPress={() => {handleClickButtonTwo(setButtonOne, setButtonTwo, setIsButtonOne, setIsButtonTwo)}}
+                onPress={() => {this.handleClickButtonTwo()}}
                 style={[
                     styles.button,
-                    {borderColor: isButtonTwo ? '#71C9DB' : 'white'},
+                    {borderColor: this.state.isButtonTwo ? '#71C9DB' : 'white'},
                 ]}>
-                    <Text style={[styles.buttonText, {color:buttonTwo}]}>
+                    <Text style={[styles.buttonText, {color:this.state.buttonTwo}]}>
                         Beverages
                     </Text>
                 </TouchableOpacity>
@@ -183,6 +204,5 @@ const Dashboard = () => {
             </View>
         </View>
     );
+  }
 }
-
-export default Dashboard

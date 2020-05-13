@@ -15,7 +15,7 @@ export default class App extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            currentScreen:'Splash'
+            currentScreen:'Dashboard'
         }
         this.changeScreen = this.changeScreen.bind(this)
     }
