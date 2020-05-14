@@ -5,6 +5,7 @@ import {
     Image,
     TouchableOpacity,
     ScrollView,
+    TouchableWithoutFeedback
  } from 'react-native'
 import styles from './style'
 import MenuDrawer from 'react-native-side-drawer'
@@ -27,10 +28,12 @@ export default class Dashboard extends React.Component{
             buttonOne:'#71C9DB',
             buttonTwo:'gray',
             isButtonOne: true,
-            isButtonTwo: false
+            isButtonTwo: false,
+            open: false,
         }
         this.handleClickButtonOne = this.handleClickButtonOne.bind(this);
         this.handleClickButtonTwo = this.handleClickButtonTwo.bind(this);
+        this.toggleOpen = this.toggleOpen.bind(this)
 
     }
     handleClickButtonOne(){
@@ -52,14 +55,124 @@ export default class Dashboard extends React.Component{
             setIsButtonOne:false,
             setIsButtonTwo:true,
         })
-    } 
+    }
+    onSwipePerformed = (action) => {
+    
+        switch(action){
+          case 'left':{
+            this.toggleOpen()
+            break;
+          }
+           case 'right':{
+            console.log('right Swipe performed');
+            break;
+          }
+           case 'up':{
+            console.log('up Swipe performed');
+            break;
+          }
+           case 'down':{
+            console.log('down Swipe performed');
+            break;
+          }
+           default : {
+           console.log('Undeteceted action');
+           }
+        }
+      }
+      toggleOpen = () => {
+        this.setState({ open: !this.state.open });
+      }; 
+      drawerContent = () => {
+        return (
+            <SwipeGesture gestureStyle={{ width:'100%', backgroundColor:'#71C9DB', flex:1, height:'100%', marginTop:-5}} 
+                onSwipePerformed={this.onSwipePerformed}>
+              
+            {/* <View style={{backgroundColor:'#38B6FF', flex:1,}}> */}
+                
+    
+                <Text
+                    style={{color:'white', marginLeft:15, fontSize:25, marginTop:20,}}
+                >Welcome</Text>
+    
+               
+                <TouchableOpacity>
+                <Text
+                    style={{color:'white', marginLeft:15, fontSize:16,  marginTop:20,}}
+                >Filters</Text>
+                </TouchableOpacity>
+    
+                <TouchableOpacity>
+                <Text
+                    style={{color:'white', marginLeft:15, fontSize:16, marginTop:20,}}
+                >Suqia Delivery</Text>
+                </TouchableOpacity>
+    
+                <TouchableOpacity>
+                <Text   
+                    style={{color:'white', marginLeft:15,  fontSize:16, marginTop:20,}}
+                >My Account</Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                <Text
+                    style={{color:'white', marginLeft:15, fontSize:16,  marginTop:20,}}
+                >My Orders</Text>
+                </TouchableOpacity>
+    
+                <TouchableOpacity>
+                <Text
+                    style={{color:'white', marginLeft:15, fontSize:16, marginTop:20,}}
+                >My Address Book</Text>
+                </TouchableOpacity>
+    
+                <TouchableOpacity>
+                <Text   
+                    style={{color:'white', marginLeft:15,  fontSize:16, marginTop:20,}}
+                >Select You City</Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                <Text
+                    style={{color:'white', marginLeft:15, fontSize:16,  marginTop:20,}}
+                >Change to Arabic</Text>
+                </TouchableOpacity>
+    
+                <TouchableOpacity>
+                <Text
+                    style={{color:'white', marginLeft:15, fontSize:16, marginTop:20,}}
+                >WhatsApp Us</Text>
+                </TouchableOpacity>
+    
+                <TouchableOpacity>
+                <Text   
+                    style={{color:'white', marginLeft:15,  fontSize:16, marginTop:20,}}
+                >Help Center</Text>
+                </TouchableOpacity>
+                
+            {/* </View> */}
+            </SwipeGesture>
+    
+        );
+      };
     render(){
 
     return(
+        <TouchableWithoutFeedback
+        onPress={() => this.setState({open:false})}
+        >
         <View style={styles.container}>
+            <MenuDrawer 
+          open={this.state.open} 
+          drawerContent={this.drawerContent()}
+          drawerPercentage={60}
+          animationTime={250}
+          overlay={true}
+          opacity={0.4}
+        >
             <View style={styles.header}>
 
-                <TouchableOpacity style={styles.backIconImageContainer}>
+                <TouchableOpacity 
+                onPress={this.toggleOpen}
+                style={styles.backIconImageContainer}>
                     <Image
                         style={styles.drawerIconImage}
                         source={DrawerIcon}
@@ -202,7 +315,9 @@ export default class Dashboard extends React.Component{
                     </Text>
                 </TouchableOpacity>
             </View>
+            </MenuDrawer>
         </View>
+        </TouchableWithoutFeedback>
     );
   }
 }

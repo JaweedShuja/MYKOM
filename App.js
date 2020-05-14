@@ -8,7 +8,10 @@ import CountrySelect from './src/screens/CountrySelect'
 import CitySelect from './src/screens/CitySelect'
 import AreaSelect from './src/screens/AreaSelect'
 import Dashboard from './src/screens/Dashboard'
-
+import About from './src/screens/About'
+import MyAddressBook from './src/screens/MyAddressBook'
+import History from './src/screens/History'
+import MyAccount from './src/screens/MyAccount'
 
 
 export default class App extends React.Component {
@@ -34,23 +37,24 @@ export default class App extends React.Component {
     }
     render(){
 
-    switch(this.state.currentScreen){
-        case 'Splash' :
-        return <Splash/>;
+    // switch(this.state.currentScreen){
+    //     case 'Splash' :
+    //     return <Splash/>;
 
-        case 'CountrySelect' :
-        return <CountrySelect change={this.changeScreen}/>;
+    //     case 'CountrySelect' :
+    //     return <CountrySelect change={this.changeScreen}/>;
 
-        case 'CitySelect':
-        return <CitySelect change={this.changeScreen}/>
+    //     case 'CitySelect':
+    //     return <CitySelect change={this.changeScreen}/>
         
-        case 'AreaSelect' :
-        return <AreaSelect change={this.changeScreen}/>
+    //     case 'AreaSelect' :
+    //     return <AreaSelect change={this.changeScreen}/>
 
-        case 'Dashboard' :
-        return <Dashboard changeScreen={this.changeScreen}/>
+    //     case 'Dashboard' :
+    //     return <Dashboard changeScreen={this.changeScreen}/>
 
-    }
+    // }
+    return <MyAccount/>
 }
     
 }

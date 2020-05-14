@@ -3,7 +3,8 @@ import {StyleSheet, Dimensions} from 'react-native'
 export default StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor:'white',   
+        backgroundColor:'white',
+        marginTop:-5,   
     },
     header:{
         height:45,
@@ -57,13 +58,14 @@ export default StyleSheet.create({
         height:55,
         width:'100%',
         position:'absolute',
-        bottom:0,
+        bottom:28,
         flexDirection:'row',
         justifyContent:'space-around',
         alignItems:'center',
         borderTopColor:'rgba(128,128,128,0.5)',
         borderTopWidth:1,
         paddingTop:5,
+        backgroundColor:'white',
     },
     navItem:{
         height:45, 
@@ -92,7 +94,7 @@ export default StyleSheet.create({
         justifyContent:'space-around'
     },
     scroller:{
-        marginBottom:55,
+        marginBottom:55 + 28,
     },
     product:{
         width:'30%',
