@@ -12,6 +12,11 @@ import About from './src/screens/About'
 import MyAddressBook from './src/screens/MyAddressBook'
 import History from './src/screens/History'
 import MyAccount from './src/screens/MyAccount'
+import Filters from './src/screens/Filters'
+import AddAddress from './src/screens/AddAddress'
+import ItemByCompany from './src/screens/ItemByCompany'
+import SuqiaDelivery from './src/screens/SuqiaDelivery'
+
 
 
 export default class App extends React.Component {
@@ -37,7 +42,14 @@ export default class App extends React.Component {
     }
     render(){
 
-    // switch(this.state.currentScreen){
+    
+    return <SuqiaDelivery/>
+}
+    
+}
+
+
+// switch(this.state.currentScreen){
     //     case 'Splash' :
     //     return <Splash/>;
 
@@ -54,7 +66,3 @@ export default class App extends React.Component {
     //     return <Dashboard changeScreen={this.changeScreen}/>
 
     // }
-    return <MyAccount/>
-}
-    
-}

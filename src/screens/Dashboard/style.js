@@ -11,7 +11,12 @@ export default StyleSheet.create({
         backgroundColor:'#71C9DB',
         flexDirection:'row',
         alignItems:'center',
-        justifyContent:'center'
+        justifyContent:'center',
+        shadowColor: '#000',
+        shadowOffset: { width: 1, height: 1 },
+        shadowOpacity:  0.3,
+        shadowRadius: 2.25,
+        elevation: 4,
     },
     backIconImageContainer:{
         flex:2,
@@ -102,5 +107,16 @@ export default StyleSheet.create({
         borderRadius:5,
         borderWidth:2,
         borderColor:'rgba(128,128,128,0.5)',   
+    },
+    drawerOptionContainer:{
+        flexDirection:'row',
+        alignItems:'center',
+        marginVertical:5,
+    },
+    drawerIcon:{
+        height:25, 
+        width:25,
+        marginLeft:10,
+        marginTop:15,
     }
 })

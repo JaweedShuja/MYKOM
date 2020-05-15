@@ -19,6 +19,15 @@ import DealsIcon from '../../images/deals.png'
 import AccountIcon from '../../images/account.png'
 import CartIcon from '../../images/cart.png'
 
+import filter from '../../images/filter.png'
+import suqia from '../../images/suqia.png'
+import user from '../../images/user.png'
+import cartWhite from '../../images/cartWhite.png'
+import homeWhite from '../../images/homeWhite.png'
+import pin from '../../images/pin.png'
+import world from '../../images/world.png'
+import WhatsApp from '../../images/whatsapp.png'
+import faq from '../../images/faq.png'
 
 export default class Dashboard extends React.Component{
     constructor(props){
@@ -95,58 +104,124 @@ export default class Dashboard extends React.Component{
                     style={{color:'white', marginLeft:15, fontSize:25, marginTop:20,}}
                 >Welcome</Text>
     
-               
+               <View style={styles.drawerOptionContainer}>
+                   <Image
+                        style={styles.drawerIcon}
+                        source={filter}
+                   />
                 <TouchableOpacity>
                 <Text
                     style={{color:'white', marginLeft:15, fontSize:16,  marginTop:20,}}
                 >Filters</Text>
                 </TouchableOpacity>
+                </View>
     
+
+                <View style={styles.drawerOptionContainer}>
+                   <Image
+                        style={styles.drawerIcon}
+                        source={suqia}
+                   />
                 <TouchableOpacity>
                 <Text
                     style={{color:'white', marginLeft:15, fontSize:16, marginTop:20,}}
                 >Suqia Delivery</Text>
                 </TouchableOpacity>
-    
+                </View>
+
+                <View style={styles.drawerOptionContainer}>
+                   <Image
+                        style={{height:40, width:30, marginLeft:7, marginTop:19}}
+                        source={user}
+                   />
                 <TouchableOpacity>
                 <Text   
                     style={{color:'white', marginLeft:15,  fontSize:16, marginTop:20,}}
                 >My Account</Text>
                 </TouchableOpacity>
+                </View>
+
+                <View style={styles.drawerOptionContainer}>
+                   <Image
+                        style={styles.drawerIcon}
+                        source={cartWhite}
+                   />
                 <TouchableOpacity>
                 <Text
                     style={{color:'white', marginLeft:15, fontSize:16,  marginTop:20,}}
                 >My Orders</Text>
                 </TouchableOpacity>
+                </View>
     
+                <View style={styles.drawerOptionContainer}>
+                   <Image
+                        style={styles.drawerIcon}
+                        source={homeWhite}
+                   />
                 <TouchableOpacity>
                 <Text
                     style={{color:'white', marginLeft:15, fontSize:16, marginTop:20,}}
                 >My Address Book</Text>
                 </TouchableOpacity>
+                </View>
     
+                <View style={styles.drawerOptionContainer}>
+                   <Image
+                        style={{height:30, 
+                            width:16,
+                            marginLeft:15,
+                            marginTop:15,}}
+                        source={pin}
+                   />
                 <TouchableOpacity>
                 <Text   
-                    style={{color:'white', marginLeft:15,  fontSize:16, marginTop:20,}}
+                    style={{color:'white', marginLeft:20,  fontSize:16, marginTop:20,}}
                 >Select You City</Text>
                 </TouchableOpacity>
+                </View>
+
+                <View style={styles.drawerOptionContainer}>
+                   <Image
+                        style={{height:20, 
+                            width:20,
+                            marginLeft:13,
+                            marginTop:15,}}
+                        source={world}
+                   />
                 <TouchableOpacity>
                 <Text
                     style={{color:'white', marginLeft:15, fontSize:16,  marginTop:20,}}
                 >Change to Arabic</Text>
                 </TouchableOpacity>
+                </View>
     
+                <View style={styles.drawerOptionContainer}>
+                   <Image
+                        style={{height:35, 
+                            width:35,
+                            marginLeft:5,
+                            marginTop:15,}}
+                        source={WhatsApp}
+                   />
                 <TouchableOpacity>
                 <Text
-                    style={{color:'white', marginLeft:15, fontSize:16, marginTop:20,}}
+                    style={{color:'white', marginLeft:10, fontSize:16, marginTop:20,}}
                 >WhatsApp Us</Text>
                 </TouchableOpacity>
+                </View>
     
+
+                <View style={styles.drawerOptionContainer}>
+                   <Image
+                        style={styles.drawerIcon}
+                        source={faq}
+                   />
                 <TouchableOpacity>
                 <Text   
                     style={{color:'white', marginLeft:15,  fontSize:16, marginTop:20,}}
                 >Help Center</Text>
                 </TouchableOpacity>
+                </View>
                 
             {/* </View> */}
             </SwipeGesture>

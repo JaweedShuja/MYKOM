@@ -10,6 +10,11 @@ export default StyleSheet.create({
         backgroundColor:'#71C9DB',
         alignItems:'center',
         justifyContent:'center',
+        shadowColor: '#000',
+        shadowOffset: { width: 1, height: 1 },
+        shadowOpacity:  0.3,
+        shadowRadius: 2.25,
+        elevation: 4,
     },
     headerText:{
         fontSize:18,

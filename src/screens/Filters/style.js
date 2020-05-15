@@ -36,25 +36,11 @@ export default  StyleSheet.create({
         color:'white',
         fontWeight:'bold',
     },
-    logoContainer:{
-        height:120,
-        width:120,
-        backgroundColor:'#71C9DB',
-        alignSelf:'center',
-        marginTop:60,
-        alignItems:'center',
-        justifyContent:'center',
-    },
-    logoImage:{
-        height:30,
-        width:100,
-    },
     optionContainer:{
         height:55,
         alignItems:'center',
         flexDirection:'row',
         borderColor:'gray',
-        borderTopWidth:1,
     },
     optionText:{
         marginLeft:20,
@@ -68,15 +54,4 @@ export default  StyleSheet.create({
         position:'absolute',
         marginRight:10,
     },
-    bottomLinkContainer:{
-        position:'absolute',
-        bottom:20,
-        alignSelf:'center',
-        padding:10,
-    },
-    bottomLinkText:{
-        color:'#71C9DB'
-    },
-    
-
 })

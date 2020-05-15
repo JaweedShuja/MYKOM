@@ -1,9 +1,10 @@
-import {StyleSheet} from 'react-native'
 
-export default  StyleSheet.create({
+import {StyleSheet} from 'react-native'
+export default StyleSheet.create({
     container:{
         flex:1,
         backgroundColor:'white',
+        marginTop:-5,   
     },
     header:{
         height:45,
@@ -23,60 +24,34 @@ export default  StyleSheet.create({
         justifyContent:'center',
         position:'absolute',
         alignSelf:'flex-start',
-        left:0,
+        left:5,
         height:'100%',
         width:50
     },
-    backIconImage:{
-        height:24,
-        width:15,
+    drawerIconImage:{
+        height:30,
+        width:35,
     },
     headerText:{
         fontSize:18,
         color:'white',
         fontWeight:'bold',
     },
-    logoContainer:{
-        height:120,
-        width:120,
-        backgroundColor:'#71C9DB',
-        alignSelf:'center',
-        marginTop:60,
+    inputContainer:{
+        height:60,
+        backgroundColor:'rgba(128,128,128,0.5)',
         alignItems:'center',
         justifyContent:'center',
     },
-    logoImage:{
-        height:30,
-        width:100,
+    input:{
+        height:40,
+        backgroundColor:'white',
+        width:'90%',
+        borderRadius:5,
     },
     optionContainer:{
-        height:55,
-        alignItems:'center',
         flexDirection:'row',
-        borderColor:'gray',
-        borderTopWidth:1,
-    },
-    optionText:{
-        marginLeft:20,
-        fontSize:16,
-        opacity:0.7
-    },
-    optionImage:{
-        height:25,
-        width:25,
-        right:0,
-        position:'absolute',
-        marginRight:10,
-    },
-    bottomLinkContainer:{
-        position:'absolute',
-        bottom:20,
-        alignSelf:'center',
+        justifyContent:'space-around',
         padding:10,
-    },
-    bottomLinkText:{
-        color:'#71C9DB'
-    },
-    
-
+    }
 })
