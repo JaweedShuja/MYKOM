@@ -9,12 +9,14 @@ import styles from './style.js'
 import BackIcon from '../../images/backIcon.png'
 import settingsIcon from '../../images/settings.png'
 
-const History = () => {
+const History = (props) => {
     return(
         <View style={styles.container}>
             <View style={styles.header}>
 
-<TouchableOpacity style={styles.backIconImageContainer}>
+<TouchableOpacity 
+onPress={() => props.navigation.goBack()}
+style={styles.backIconImageContainer}>
     <Image
         style={styles.backIconImage}
         source={BackIcon}
@@ -41,3 +43,7 @@ const History = () => {
 }
 
 export default History
+
+History.navigationOptions = {
+    header:null
+}

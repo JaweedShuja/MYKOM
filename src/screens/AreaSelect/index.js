@@ -60,7 +60,9 @@ const AreaSelect = (props) => {
         <View style={styles.container}>
             <View style={styles.header}>
 
-                <TouchableOpacity style={styles.backIconImageContainer}>
+                <TouchableOpacity
+                onPress={() => props.navigation.goBack()}
+                 style={styles.backIconImageContainer}>
                     <Image
                         style={styles.backIconImage}
                         source={BackIcon}
@@ -92,7 +94,7 @@ const AreaSelect = (props) => {
                     {
                     isSelected == true ?
                     <TouchableOpacity
-                    onPress={() => props.change('Dashboard')}
+                    onPress={() => props.navigation.navigate('Dashboard')}
                      style={styles.continueButton}>
                         <Text style={styles.continueButtonText}>Continue</Text>
                     </TouchableOpacity>    
@@ -104,3 +106,7 @@ const AreaSelect = (props) => {
 }
 
 export default AreaSelect
+
+AreaSelect.navigationOptions = {
+    header:null
+}

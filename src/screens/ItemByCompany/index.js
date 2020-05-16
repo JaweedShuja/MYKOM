@@ -4,12 +4,14 @@ import styles from './style.js'
 import BackIcon from '../../images/backIcon.png'
 import Juice from '../../images/juice.png'
 
-const ItemByCompany = () => {
+const ItemByCompany = (props) => {
     return(
         <View style={styles.container}>
             <View style={styles.header}>
 
-<TouchableOpacity style={styles.backIconImageContainer}>
+<TouchableOpacity 
+onPress={() => props.navigation.goBack()}
+style={styles.backIconImageContainer}>
     <Image
         style={styles.backIconImage}
         source={BackIcon}
@@ -95,3 +97,8 @@ const ItemByCompany = () => {
 }
 
 export default ItemByCompany
+
+
+ItemByCompany.navigationOptions = {
+    header:null
+}

@@ -58,7 +58,9 @@ const CitySelect = (props) => {
         <View style={styles.container}>
             <View style={styles.header}>
 
-                <TouchableOpacity style={styles.backIconImageContainer}>
+                <TouchableOpacity 
+                onPress={() => props.navigation.goBack()}
+                style={styles.backIconImageContainer}>
                     <Image
                         style={styles.backIconImage}
                         source={BackIcon}
@@ -80,7 +82,7 @@ const CitySelect = (props) => {
                     {
                     isSelected == true ?
                     <TouchableOpacity
-                    onPress={() => props.change('AreaSelect')}
+                    onPress={() => props.navigation.navigate('AreaSelect')}
                      style={styles.continueButton}>
                         <Text style={styles.continueButtonText}>Continue</Text>
                     </TouchableOpacity>    
@@ -92,3 +94,7 @@ const CitySelect = (props) => {
 }
 
 export default CitySelect
+
+CitySelect.navigationOptions = {
+    header:null
+}

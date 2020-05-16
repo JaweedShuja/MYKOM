@@ -7,7 +7,7 @@ export default StyleSheet.create({
         marginTop:-5,   
     },
     header:{
-        height:45,
+        height:50,
         backgroundColor:'#71C9DB',
         flexDirection:'row',
         alignItems:'center',
@@ -53,5 +53,24 @@ export default StyleSheet.create({
         flexDirection:'row',
         justifyContent:'space-around',
         padding:10,
+    },
+    SelectoptionContainer:{
+        height:80, 
+        marginHorizontal:10,
+        borderColor:'gray',
+        borderBottomWidth:1,
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    SelectOptionImage:{
+        height:50,
+        width:50,
+    },
+    yesIcon:{
+        height:30,
+        width:30,
+
+        position:'absolute',
+        right:10,
     }
 })

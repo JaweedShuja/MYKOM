@@ -62,11 +62,12 @@ export default StyleSheet.create({
     },
     continueButton:{
         height:45,
-        backgroundColor:'#81A9B1',
+        backgroundColor:'#71C9DB',
         marginHorizontal:20,
         alignItems:'center',
         justifyContent:'center',
         bottom:10,
+        borderRadius:5,
     },
     continueButtonText:{
         fontSize:18,

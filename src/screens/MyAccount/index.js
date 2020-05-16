@@ -10,12 +10,14 @@ import styles from './style.js'
 import BackIcon from '../../images/backIcon.png'
 import settingsIcon from '../../images/settings.png'
 
-const MyAccount = () => {
+const MyAccount = (props) => {
     return(
         <View style={styles.container}>
             <View style={styles.header}>
 
-<TouchableOpacity style={styles.backIconImageContainer}>
+<TouchableOpacity 
+onPress={() => props.navigation.goBack()}
+style={styles.backIconImageContainer}>
     <Image
         style={styles.backIconImage}
         source={BackIcon}
@@ -49,3 +51,8 @@ const MyAccount = () => {
 }
 
 export default MyAccount
+
+
+MyAccount.navigationOptions = {
+    header:null
+}

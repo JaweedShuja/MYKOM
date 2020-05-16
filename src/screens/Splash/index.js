@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {
     View,
     Image,
@@ -9,7 +9,14 @@ import splashIcon from '../../images/splash.png'
 const screenWidth = Math.round(Dimensions.get('window').width)
 const screenHeight = Math.round(Dimensions.get('window').height);
 
-const Splash = () => {
+const Splash = (props) => {
+    useEffect(() => {    
+        var t = setInterval(() => {
+            props.navigation.navigate('CitySelect')
+            clearInterval(t)
+
+        },2000)
+    });
     return (
     <View style={styles.container}>
         <Image
@@ -23,3 +30,7 @@ const Splash = () => {
 }
 
 export default Splash
+
+Splash.navigationOptions = {
+    header:null
+}

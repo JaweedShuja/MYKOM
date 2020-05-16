@@ -60,13 +60,10 @@ export default StyleSheet.create({
         fontWeight:'bold',
     },
     bottomNavBar:{
-        height:55,
+        height:'100%',
         width:'100%',
-        position:'absolute',
-        bottom:28,
         flexDirection:'row',
         justifyContent:'space-around',
-        alignItems:'center',
         borderTopColor:'rgba(128,128,128,0.5)',
         borderTopWidth:1,
         paddingTop:5,
@@ -99,7 +96,6 @@ export default StyleSheet.create({
         justifyContent:'space-around'
     },
     scroller:{
-        marginBottom:55 + 28,
     },
     product:{
         width:'30%',
@@ -107,6 +103,8 @@ export default StyleSheet.create({
         borderRadius:5,
         borderWidth:2,
         borderColor:'rgba(128,128,128,0.5)',   
+        alignItems:'center',
+        justifyContent:'center',
     },
     drawerOptionContainer:{
         flexDirection:'row',

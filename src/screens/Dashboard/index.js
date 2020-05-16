@@ -5,7 +5,8 @@ import {
     Image,
     TouchableOpacity,
     ScrollView,
-    TouchableWithoutFeedback
+    TouchableWithoutFeedback,
+    TextInput
  } from 'react-native'
 import styles from './style'
 import MenuDrawer from 'react-native-side-drawer'
@@ -28,17 +29,208 @@ import pin from '../../images/pin.png'
 import world from '../../images/world.png'
 import WhatsApp from '../../images/whatsapp.png'
 import faq from '../../images/faq.png'
+import Nestle from '../../images/nestle.png'
+var _props
+let Home = []
+let Categories = []
+let Deals = []
+let Account = []
+let Cart = []
+Home.push(
+    <View>
+        <View style={styles.buttonContainer}>
+                <TouchableOpacity 
+                
+                style={[
+                    styles.button,
+                    {borderColor: true ? '#71C9DB' : 'white'},
+                ]}>
+                    <Text style={[styles.buttonText, {color:'#71C9DB'}]}>
+                        Water
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                
+                style={[
+                    styles.button,
+                    {borderColor: false ? '#71C9DB' : 'white'},
+                ]}>
+                    <Text style={[styles.buttonText, {color:'gray'}]}>
+                        Beverages
+                    </Text>
+                </TouchableOpacity>
+                
+            </View>
+            <ScrollView style={styles.scroller}>
+                 <Image
+                    source={CoverImage}
+                    style={styles.coverImage}
+                 /> 
+                 <View style={styles.productRowContainer}>
+                    <TouchableOpacity
+                    onPress={() => _props.navigation.navigate('ItemByCompany')}
+                     style={styles.product}>
+                            <Image
+                            source={Nestle}
+                            style={{height:54, width:90,}}
 
+                            />
+                    </TouchableOpacity>
+                    <View style={styles.product}>
+
+                    </View>
+                    <View style={styles.product}>
+
+                    </View>
+                </View>
+                <View style={styles.productRowContainer}>
+                    <View style={styles.product}>
+
+                    </View>
+                    <View style={styles.product}>
+
+                    </View>
+                    <View style={styles.product}>
+
+                    </View>
+                </View>  
+                <View style={styles.productRowContainer}>
+                    <View style={styles.product}>
+
+                    </View>
+                    <View style={styles.product}>
+
+                    </View>
+                    <View style={styles.product}>
+
+                    </View>
+                </View>
+                <View style={styles.productRowContainer}>
+                    <View style={styles.product}>
+
+                    </View>
+                    <View style={styles.product}>
+
+                    </View>
+                    <View style={styles.product}>
+
+                    </View>
+                </View>
+                <View style={styles.productRowContainer}>
+                    <View style={styles.product}>
+
+                    </View>
+                    <View style={styles.product}>
+
+                    </View>
+                    <View style={styles.product}>
+
+                    </View>
+                </View>
+            </ScrollView> 
+    </View>
+)
+Categories.push(
+    <View>
+        <ScrollView>
+        <TouchableOpacity style={{height:50, borderColor:'black', borderBottomWidth:1,  justifyContent:'center',}}>
+            <Text style={{marginLeft:10,  fontSize:18}}>
+                Water Botol 1.5 LTR
+            </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{height:50, borderColor:'black', borderBottomWidth:1,  justifyContent:'center',}}>
+            <Text style={{marginLeft:10,  fontSize:18}}>
+                Water Botol 2.25 LTR
+            </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{height:50, borderColor:'black', borderBottomWidth:1,  justifyContent:'center',}}>
+            <Text style={{marginLeft:10,  fontSize:18}}>
+                Water Botol 5 LTR
+            </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{height:50, borderColor:'black', borderBottomWidth:1,  justifyContent:'center',}}>
+            <Text style={{marginLeft:10,  fontSize:18}}>
+                Juice Regular
+            </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{height:50, borderColor:'black', borderBottomWidth:1,  justifyContent:'center',}}>
+            <Text style={{marginLeft:10,  fontSize:18}}>
+                Juice Family Pack
+            </Text>
+        </TouchableOpacity>
+        </ScrollView>
+    </View>
+)
+Deals.push(
+    <View style={{alignItems:'center', justifyContent:'center',}}>
+        <Text style={{fontSize:18}}>No Deals Right Now</Text>
+    </View>
+)
+Account.push(
+    <View>
+        <View style={[{
+        marginHorizontal:20,
+        borderBottomWidth:1,
+        borderColor:'gray'
+    }, {marginTop:30}]}>
+            
+            <TextInput style={{input:{
+        fontSize:17,
+    },}}
+                placeholder="Name"
+            />
+            </View>
+            <View style={[{
+        marginHorizontal:20,
+        borderBottomWidth:1,
+        borderColor:'gray'
+    }, {marginTop:10,}]}>
+                
+            <TextInput style={{input:{
+        fontSize:17,
+    },}}
+                placeholder="Email Address"
+            />
+            </View>
+    
+            <TouchableOpacity style={{
+        height:45,
+        backgroundColor:'#71C9DB',
+        marginTop:50,
+        marginHorizontal:20,
+        borderRadius:5, 
+        alignItems:'center',
+        justifyContent:'center',       
+    }}>
+                <Text style={{
+        fontWeight:'bold',
+        fontSize:16,
+        color:'white',
+    }}>
+                    Save
+                </Text>
+            </TouchableOpacity> 
+    </View>
+)
+Cart.push(
+    <View style={{alignItems:'center', justifyContent:'center',}}>
+        <Text style={{fontSize:18}}>Your Cart is Empty</Text>
+    </View>
+)
 export default class Dashboard extends React.Component{
+    static navigationOptions = {
+        header:null
+    }
     constructor(props){
         super(props)
-
+        _props = props;
         this.state = {
             buttonOne:'#71C9DB',
             buttonTwo:'gray',
             isButtonOne: true,
             isButtonTwo: false,
             open: false,
+            currentFragment:'Home'
         }
         this.handleClickButtonOne = this.handleClickButtonOne.bind(this);
         this.handleClickButtonTwo = this.handleClickButtonTwo.bind(this);
@@ -109,7 +301,14 @@ export default class Dashboard extends React.Component{
                         style={styles.drawerIcon}
                         source={filter}
                    />
-                <TouchableOpacity>
+                <TouchableOpacity
+                style={{width:'100%'}}
+                onPress={() => {
+                    this.props.navigation.navigate('Filters')
+                    // this.setState({open:false})
+
+                }}
+                >
                 <Text
                     style={{color:'white', marginLeft:15, fontSize:16,  marginTop:20,}}
                 >Filters</Text>
@@ -122,7 +321,14 @@ export default class Dashboard extends React.Component{
                         style={styles.drawerIcon}
                         source={suqia}
                    />
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={() => {
+                    this.props.navigation.navigate('SuqiaDelivery')
+                    // this.setState({open:false})
+
+                }}
+                style={{width:'100%'}}
+                >
                 <Text
                     style={{color:'white', marginLeft:15, fontSize:16, marginTop:20,}}
                 >Suqia Delivery</Text>
@@ -134,7 +340,14 @@ export default class Dashboard extends React.Component{
                         style={{height:40, width:30, marginLeft:7, marginTop:19}}
                         source={user}
                    />
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={() => {
+                    this.props.navigation.navigate('MyAccount')
+                    // this.setState({open:false})
+
+                }}
+                style={{width:'100%'}}
+                >
                 <Text   
                     style={{color:'white', marginLeft:15,  fontSize:16, marginTop:20,}}
                 >My Account</Text>
@@ -146,7 +359,14 @@ export default class Dashboard extends React.Component{
                         style={styles.drawerIcon}
                         source={cartWhite}
                    />
-                <TouchableOpacity>
+                <TouchableOpacity 
+                onPress={() => {
+                    this.props.navigation.navigate('History')
+                    // this.setState({open:false})
+
+                }}
+                style={{width:'100%'}}
+                >
                 <Text
                     style={{color:'white', marginLeft:15, fontSize:16,  marginTop:20,}}
                 >My Orders</Text>
@@ -158,7 +378,14 @@ export default class Dashboard extends React.Component{
                         style={styles.drawerIcon}
                         source={homeWhite}
                    />
-                <TouchableOpacity>
+                <TouchableOpacity 
+                onPress={() => {
+                    this.props.navigation.navigate('MyAddressBook')
+                    // this.setState({open:false})
+
+                }}
+                style={{width:'100%'}}
+                >
                 <Text
                     style={{color:'white', marginLeft:15, fontSize:16, marginTop:20,}}
                 >My Address Book</Text>
@@ -173,7 +400,14 @@ export default class Dashboard extends React.Component{
                             marginTop:15,}}
                         source={pin}
                    />
-                <TouchableOpacity>
+                <TouchableOpacity 
+                onPress={() => {
+                    this.props.navigation.navigate('CitySelect')
+                    // this.setState({open:false})
+
+                }}
+                style={{width:'100%'}}
+                >
                 <Text   
                     style={{color:'white', marginLeft:20,  fontSize:16, marginTop:20,}}
                 >Select You City</Text>
@@ -188,7 +422,9 @@ export default class Dashboard extends React.Component{
                             marginTop:15,}}
                         source={world}
                    />
-                <TouchableOpacity>
+                <TouchableOpacity
+                style={{width:'100%'}}
+                >
                 <Text
                     style={{color:'white', marginLeft:15, fontSize:16,  marginTop:20,}}
                 >Change to Arabic</Text>
@@ -203,7 +439,9 @@ export default class Dashboard extends React.Component{
                             marginTop:15,}}
                         source={WhatsApp}
                    />
-                <TouchableOpacity>
+                <TouchableOpacity
+                style={{width:'100%'}}
+                >
                 <Text
                     style={{color:'white', marginLeft:10, fontSize:16, marginTop:20,}}
                 >WhatsApp Us</Text>
@@ -216,7 +454,9 @@ export default class Dashboard extends React.Component{
                         style={styles.drawerIcon}
                         source={faq}
                    />
-                <TouchableOpacity>
+                <TouchableOpacity
+                style={{width:'100%'}}
+                >
                 <Text   
                     style={{color:'white', marginLeft:15,  fontSize:16, marginTop:20,}}
                 >Help Center</Text>
@@ -259,92 +499,31 @@ export default class Dashboard extends React.Component{
                 />
 
             </View>
-            <View style={styles.buttonContainer}>
+            <View style={{flex:1,}}>
+            <View style={{flex:13, backgroundColor:'white'}}>
+            {
+                this.state.currentFragment == "Home" ? Home : null}
+              {  this.state.currentFragment == "Categories" ? Categories : null
+            }
+            {
+                this.state.currentFragment == "Deals" ? Deals : null
+            }
+            {
+                this.state.currentFragment == "Account" ? Account : null
+
+            }
+            {
+                this.state.currentFragment == "Cart" ? Cart : null
+
+            }
+                </View>
+                <View style={{flex:2, }}>
+                <View style={styles.bottomNavBar}>
                 <TouchableOpacity 
-                onPress={() => {this.handleClickButtonOne()}}
-                style={[
-                    styles.button,
-                    {borderColor: this.state.isButtonOne ? '#71C9DB' : 'white'},
-                ]}>
-                    <Text style={[styles.buttonText, {color:this.state.buttonOne}]}>
-                        Water
-                    </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                onPress={() => {this.handleClickButtonTwo()}}
-                style={[
-                    styles.button,
-                    {borderColor: this.state.isButtonTwo ? '#71C9DB' : 'white'},
-                ]}>
-                    <Text style={[styles.buttonText, {color:this.state.buttonTwo}]}>
-                        Beverages
-                    </Text>
-                </TouchableOpacity>
-                
-            </View>
-            <ScrollView style={styles.scroller}>
-                 <Image
-                    source={CoverImage}
-                    style={styles.coverImage}
-                 /> 
-                 <View style={styles.productRowContainer}>
-                    <View style={styles.product}>
-
-                    </View>
-                    <View style={styles.product}>
-
-                    </View>
-                    <View style={styles.product}>
-
-                    </View>
-                </View>
-                <View style={styles.productRowContainer}>
-                    <View style={styles.product}>
-
-                    </View>
-                    <View style={styles.product}>
-
-                    </View>
-                    <View style={styles.product}>
-
-                    </View>
-                </View>  
-                <View style={styles.productRowContainer}>
-                    <View style={styles.product}>
-
-                    </View>
-                    <View style={styles.product}>
-
-                    </View>
-                    <View style={styles.product}>
-
-                    </View>
-                </View>
-                <View style={styles.productRowContainer}>
-                    <View style={styles.product}>
-
-                    </View>
-                    <View style={styles.product}>
-
-                    </View>
-                    <View style={styles.product}>
-
-                    </View>
-                </View>
-                <View style={styles.productRowContainer}>
-                    <View style={styles.product}>
-
-                    </View>
-                    <View style={styles.product}>
-
-                    </View>
-                    <View style={styles.product}>
-
-                    </View>
-                </View>
-            </ScrollView>
-            <View style={styles.bottomNavBar}>
-                <TouchableOpacity style={styles.navItem}>
+                onPress={() => {this.setState({ 
+                    currentFragment:"Home"
+                })}}
+                style={styles.navItem}>
                     <Image
                         source={HomeIcon}
                         style={styles.navImage}
@@ -353,7 +532,11 @@ export default class Dashboard extends React.Component{
                         Home
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.navItem}>
+                <TouchableOpacity 
+                 onPress={() => {this.setState({ 
+                    currentFragment:"Categories"
+                })}}
+                style={styles.navItem}>
                     <Image
                         source={CategoriesIcon}
                         style={styles.navImage}
@@ -362,7 +545,11 @@ export default class Dashboard extends React.Component{
                         Categories
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.navItem}>
+                <TouchableOpacity 
+                 onPress={() => {this.setState({ 
+                    currentFragment:"Deals"
+                })}}
+                style={styles.navItem}>
                     <Image
                         source={DealsIcon}
                         style={styles.navImage}
@@ -371,7 +558,11 @@ export default class Dashboard extends React.Component{
                         Deals
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.navItem}>
+                <TouchableOpacity
+                 onPress={() => {this.setState({ 
+                    currentFragment:"Account"
+                })}}
+                 style={styles.navItem}>
                     <Image
                         source={AccountIcon}
                         style={styles.navImage}
@@ -380,7 +571,11 @@ export default class Dashboard extends React.Component{
                         Acount
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.navItem}>
+                <TouchableOpacity 
+                 onPress={() => {this.setState({ 
+                    currentFragment:"Cart"
+                })}}
+                style={styles.navItem}>
                     <Image
                         source={CartIcon}
                         style={styles.navImage}
@@ -390,6 +585,11 @@ export default class Dashboard extends React.Component{
                     </Text>
                 </TouchableOpacity>
             </View>
+                </View>
+            
+            </View>
+            
+            
             </MenuDrawer>
         </View>
         </TouchableWithoutFeedback>

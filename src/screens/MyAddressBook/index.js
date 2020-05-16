@@ -9,12 +9,14 @@ import styles from './style.js'
 import BackIcon from '../../images/backIcon.png'
 import right from '../../images/right.webp'
 
-const MyAddressBook = () => {
+const MyAddressBook = (props) => {
     return(
         <View style={styles.container}>
             <View style={styles.header}>
 
-<TouchableOpacity style={styles.backIconImageContainer}>
+<TouchableOpacity 
+onPress={() => props.navigation.goBack()}
+style={styles.backIconImageContainer}>
     <Image
         style={styles.backIconImage}
         source={BackIcon}
@@ -26,7 +28,9 @@ const MyAddressBook = () => {
 
 </View>
 
-<TouchableOpacity style={[styles.optionContainer, {borderBottomWidth:1,}]}>
+<TouchableOpacity 
+onPress={() => props.navigation.navigate('AddAddress')}
+style={[styles.optionContainer, {borderBottomWidth:1,}]}>
         <Text style={styles.optionText}>
             + Add a new address
         </Text>
@@ -43,3 +47,7 @@ const MyAddressBook = () => {
 }
 
 export default MyAddressBook
+
+MyAddressBook.navigationOptions = {
+    header:null
+}

@@ -4,12 +4,14 @@ import styles from './style.js'
 import BackIcon from '../../images/backIcon.png'
 import right from '../../images/right.webp'
 
-const Filters = () => {
+const Filters = (props) => {
     return(
         <View>
             <View style={styles.header}>
 
-<TouchableOpacity style={styles.backIconImageContainer}>
+<TouchableOpacity 
+onPress={() => props.navigation.goBack()}
+style={styles.backIconImageContainer}>
     <Image
         style={styles.backIconImage}
         source={BackIcon}
@@ -114,3 +116,8 @@ const Filters = () => {
 
 
 export default Filters
+
+
+Filters.navigationOptions = {
+    header:null
+}

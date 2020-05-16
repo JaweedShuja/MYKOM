@@ -4,12 +4,14 @@ import styles from './style'
 import BackIcon from '../../images/backIcon.png'
 import VillaIcon from '../../images/villa.png'
 import buildingIcon from '../../images/building.png'
-const AddAddress = () => {
+const AddAddress = (props) => {
     return(
         <View style={styles.container}>
             <View style={styles.header}>
 
-<TouchableOpacity style={styles.backIconImageContainer}>
+<TouchableOpacity 
+onPress={() => props.navigation.goBack()}
+style={styles.backIconImageContainer}>
     <Image
         style={styles.backIconImage}
         source={BackIcon}
@@ -39,13 +41,15 @@ const AddAddress = () => {
         <View style={[styles.inputContainer, {marginTop:30}]}>
             
         <TextInput style={styles.input}
-            placeholder="Karachi"
+            placeholder="City"
+            value="Karachi"
         />
         </View>
         <View style={[styles.inputContainer, {marginTop:10,}]}>
             
         <TextInput style={styles.input}
-            placeholder="North Nazimabad"
+            placeholder="Area"
+            value="North Nazimabad"
         />
         </View>
         <View style={[styles.inputContainer, {marginTop:10,}]}>
@@ -67,7 +71,9 @@ const AddAddress = () => {
         />
         </View>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity 
+        onPress={() => props.navigation.navigate('Dashboard')}
+        style={styles.button}>
             <Text style={styles.buttonText}>
                 Confirm
             </Text>
@@ -78,3 +84,7 @@ const AddAddress = () => {
 }
 
 export default  AddAddress
+
+AddAddress.navigationOptions = {
+    header:null
+}
